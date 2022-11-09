@@ -17,7 +17,9 @@ const ServicesDetails = () => {
         .then(data => setReview(data))
     } ,[_id])
 
-    console.log(review)
+    const refreshPage = ()=>{
+        window.location.reload();
+     }
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -95,7 +97,7 @@ const ServicesDetails = () => {
                             <div className='flex justify-between'>
                                 <button  className='py-3 px-8 bg-emerald-600 text-white' type="submit">Add Review</button>
                                 <div className="mt-[12px]">
-                                    <label htmlFor="my-modal" className="cursor-pointer py-3 px-8 bg-emerald-600 text-white">Close</label>
+                                    <label htmlFor="my-modal" onClick={refreshPage} className="cursor-pointer py-3 px-8 bg-emerald-600 text-white">Close</label>
                                 </div>
                             </div>
                         </form>

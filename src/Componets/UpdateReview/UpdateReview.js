@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
-const UpdateService = () => {
+const UpdateReview = () => {
     const storedService = useLoaderData();
-    const [service, setService] = useState(storedService);
+    const [review, setReview] = useState(storedService);
     console.log(storedService)
     const navigate = useNavigate();
-    const handleUpdateUser = (event) => {
+    const handleUpdateReview = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:5000/homeservices/${service._id}`, {
+        fetch(`http://localhost:5000/reviews/${review._id}`, {
             method : "PUT",
             headers : {
                 'content-type' : "application/json" 
             },
-            body : JSON.stringify(service)
+            body : JSON.stringify(review)
         })
         .then(res => res.json())
         .then(data => {
@@ -21,7 +21,7 @@ const UpdateService = () => {
             if(data.modifiedCount > 0 )
             {
                 alert('user updated')
-                navigate(`/homeservices/${service._id}`)
+                navigate(`/homeservices/${review._id}`)
             }
         })
     }
@@ -30,24 +30,24 @@ const UpdateService = () => {
         const value = event.target.value;
         const field = event.target.name;
         const time = {dateInString:Date()}
-        const newService = { ...service, time };
-        newService[field] = value;
-        setService(newService);
-        console.log(newService);
+        const newReview = { ...review, time };
+        newReview[field] = value;
+        setReview(newReview);
+        console.log(newReview);
       };
 
     return (
         <div className="w-[60%] mx-auto my-20 p-8 shadow-md rounded-md border">
-              <form onSubmit={handleUpdateUser}>
+              <form onSubmit={handleUpdateReview}>
           <div>
-            <h1 className='my-5 text-center font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600' >Update Services</h1>
+            <h1 className='my-5 text-center font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600' >Update Reviews</h1>
             <input
             className="input input-bordered input-secondary w-full "
               onChange={handleInputBlur}
-              defaultValue={storedService.package_name}
+              defaultValue={storedService.userName}
               type="text"
-              name="package_name"
-              placeholder="Package_name"
+              name="userName"
+              placeholder="Enter your name"
               required
             />
           </div>
@@ -55,10 +55,10 @@ const UpdateService = () => {
             <input
              className="input input-bordered input-secondary w-full "
               onChange={handleInputBlur}
-              defaultValue={storedService.thumbnail}
+              defaultValue={storedService.review}
               type="text"
-              name="thumbnail"
-              placeholder="Img Url"
+              name="review"
+              placeholder="Type Review about product"
               required
             />
           </div>
@@ -66,31 +66,17 @@ const UpdateService = () => {
             <input
              className="input input-bordered input-secondary w-full "
               onChange={handleInputBlur}
-              defaultValue={storedService.price}
-              type="text"
-              name="price"
-              placeholder="Enter Your Price"
+              defaultValue={storedService.ratting}
+              type="number" name="ratting" placeholder="Enter your Ratting"
               required
             />
           </div>
-          <div className='my-3' >
-            <textarea
-              className="w-full p-2 textarea textarea-secondary"
-              onChange={handleInputBlur}
-              defaultValue={storedService.description}
-              type="text"
-              name="description"
-              placeholder="Describe Description"
-              required
-            />
-          </div>
-
           <div className='w-full flex justify-center'>
-            <button type="submit" className='bg-purple-600 px-7 py-3 text-white' >Update User</button>
+            <button type="submit" className='bg-purple-600 px-7 py-3 text-white' >Update Review</button>
           </div>
         </form>
         </div>
     );
 }
 
-export default UpdateService;
+export default UpdateReview;

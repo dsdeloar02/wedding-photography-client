@@ -4,6 +4,7 @@ import Home from "../../Componets/Home/Home";
 import Login from "../../Componets/Login/Login";
 import Register from "../../Componets/Register/Register";
 import ServicesDetails from "../../Componets/ServiceDetails/ServicesDetails";
+import UpdateReview from "../../Componets/UpdateReview/UpdateReview";
 import UpdateService from "../../Componets/UpdateService/UpdateService";
 import Main from "../../Layouts/Main";
 
@@ -38,6 +39,11 @@ export const routes = createBrowserRouter([
             {
                 path :'/register',
                 element : <Register></Register>
+            },
+            {
+                path : 'updatereview/:id',
+                loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`),
+                element : <UpdateReview></UpdateReview>
             }
         ]
     }
