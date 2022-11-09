@@ -27,7 +27,7 @@ const Register = () => {
             handleUpdateProfile(name, photoURL);
             logOut();
             console.log(user)
-            toast.success('Go to Check email')
+            toast.success('Registration Successfull')
         })
         .catch( e => {
             console.error(e)
