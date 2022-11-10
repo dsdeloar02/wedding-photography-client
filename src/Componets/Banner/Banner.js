@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -11,21 +11,14 @@ import { Autoplay,  EffectFade,  Navigation } from "swiper";
 
 const Banner = () => {
 
-    const data = [
-        {
-            "thumbnail" : "https://static.showit.co/1200/PIOcZNJBRPyaMVZJDRDleA/21679/73304042.jpg",
-            "details" : 'This wedding is very interesting Wedding'
-        },
-        {
-            "thumbnail" : "https://assets.vogue.in/photos/6360ee4b74016d3adc45f105/16:9/w_1280,c_limit/JR.WP-244.jpg",
-            "details" :  'This Festibal Wedding is very interesting Wedding'
-        },
-        {
-            "thumbnail" : "https://i.ytimg.com/vi/EBv48eIcwiQ/maxresdefault.jpg",
-            "details" :  'This Gourgious is very interesting Wedding'
-        }
-    ]
+    const [data, setData] = useState([]) ;
 
+    useEffect(() => {
+        fetch('http://localhost:5000/banners')
+        .then(res => res.json())
+        .then(data => setData(data))
+    }, [])
+    
     return (
         <div className='h-[350px] md:h-[450px] lg:h-[600px] w-full'>
              <Swiper
