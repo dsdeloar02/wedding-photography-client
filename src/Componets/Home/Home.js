@@ -22,7 +22,7 @@ const Home = () => {
                 }
             </div>
             <div className='py-8 text-center'>
-                <Link className='py-4 px-12 bg-red-600 text-white' > All Services </Link>
+                <Link to='/allservice' className='py-4 px-12 bg-red-600 text-white' > All Services </Link>
             </div>
             </div>
         </div>

@@ -9,6 +9,8 @@ const SingleReview = ({singlereview}) => {
         <div className='w-[30%] p-5 rounded-md shadow-md mt-5'>
             <div className='flex align-middle items-center'>
                 <img className='w-[50px] h-[50px] rounded-full' src={singlereview.userPhoto} alt="" />
+
+
                 <h1 className='text-xl font-semibold ml-2'>{singlereview.userName}</h1>
             </div>
             <p className='mt-5'>{singlereview.review}</p>

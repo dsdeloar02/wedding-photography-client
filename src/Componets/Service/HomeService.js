@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ImageViewer from './ImageViewer';
 
 const HomeService = ({hservice}) => {
     const {_id, package_name, thumbnail, price, description} = hservice;
 
-
     return (
         <div className='w-full my-2 md:w-[30%] p-6 border rounded-md shadow-lg' >
+            {/* <ImageViewer/> */}
             <img className='w-full' src={thumbnail} alt="" />
             <h1 className='py-3 font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600' >Package : {package_name}</h1>
             <h3 className='font-bold text-transparent text-xl bg-clip-text bg-gradient-to-r from-orange-400 to-violet-600' >Prcie : {price}</h3>

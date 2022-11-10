@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddServices from "../../Componets/AddService/AddServices";
+import Blogs from "../../Componets/Blogs/Blogs";
 import Home from "../../Componets/Home/Home";
 import Login from "../../Componets/Login/Login";
 import MyReview from "../../Componets/Myreview/MyReview";
 import Register from "../../Componets/Register/Register";
+import AllServive from "../../Componets/Service/AllServive";
 import ServicesDetails from "../../Componets/ServiceDetails/ServicesDetails";
 import UpdateReview from "../../Componets/UpdateReview/UpdateReview";
 import UpdateService from "../../Componets/UpdateService/UpdateService";
@@ -51,6 +53,15 @@ export const routes = createBrowserRouter([
                 path : '/myreview',
                 loader : () => fetch('http://localhost:5000/myreviews'),
                 element : <PrivateRoute><MyReview></MyReview></PrivateRoute>
+            },
+            {
+                path : '/allservice',
+                loader: () => fetch('http://localhost:5000/allservice'),
+                element :<AllServive></AllServive>
+            },
+            {
+                path : '/blogs',
+                element : <Blogs></Blogs>
             }
         ]
     }

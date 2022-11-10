@@ -22,7 +22,9 @@ const Header = () => {
         <div className='shadow-md' >
             <div className="container w-5/6 md:w-full mx-auto md:flex justify-between py-6">
                 <div className='flex items-center text-slate-600 w-[300px]'>
-                    <h1 className='font-bold  md:text-xl lg:text-2xl' >Programming Tech</h1>
+                    <NavLink to='/'>
+                        <h1  className='font-bold  md:text-xl lg:text-2xl' >Programming Tech</h1>
+                    </NavLink>
                 </div>
 
 
@@ -39,24 +41,19 @@ const Header = () => {
                  
                  >
                     <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
-                        <NavLink to='/' >Home</NavLink>
-                    </li>
-                    <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
-                        <NavLink to='/myreview' >My Review</NavLink>
-                    </li>
-                    <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
-                        <NavLink to='/service/add' >Add Service</NavLink>
-                    </li>
-                    <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
                         <NavLink to='/blogs' >Blogs</NavLink>
-                    </li>
-                    <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
-                        <NavLink to='/faq' >FAq</NavLink>
                     </li>
                     <li className='mx-2 '>
                        {
                         user?.uid? 
                         <div className='flex relative'>
+                            <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
+                                <NavLink to='/myreview' >My Review</NavLink>
+                            </li>
+                            <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
+                                <NavLink to='/service/add' >Add Service</NavLink>
+                            </li>
+
                             <button className='px-2 mr-2 mt-2 md:mt-0 bg-black text-white' onClick={handleLogOut} >Log Out </button>
                             <button 
                                 onMouseEnter={() => setIsShown(true)}
@@ -74,6 +71,7 @@ const Header = () => {
                             </div>
                             
                         </div>
+                        
                         
                         :  <NavLink to='/login' className='bg-[#6419E6] py-2 px-4 mt-3 md:mt-0' >Log In</NavLink>
                        }
