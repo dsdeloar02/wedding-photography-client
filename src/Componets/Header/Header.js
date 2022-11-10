@@ -23,7 +23,7 @@ const Header = () => {
             <div className="container w-5/6 md:w-full mx-auto md:flex justify-between py-6">
                 <div className='flex items-center text-slate-600 w-[300px]'>
                     <NavLink to='/'>
-                        <h1  className='font-bold  md:text-xl lg:text-2xl' >Programming Tech</h1>
+                        <h1  className='font-bold  md:text-xl lg:text-2xl' >Photography</h1>
                     </NavLink>
                 </div>
 

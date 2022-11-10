@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './AddServices.css'
 
 const AddServices = () => {
@@ -36,6 +37,11 @@ const AddServices = () => {
       };
     return (
         <div className="w-[60%] mx-auto my-20 p-8 shadow-md rounded-md border">
+          <Helmet>
+            <meta charSet='utf-8'/>
+            <title>Add Service</title>
+            <meta name='keyword' content='Wedding Photogray React js'/>                
+        </Helmet>
               <form onSubmit={handleAddUser}>
           <div className='my-3'>
             <h1 className='my-5 text-center font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600' >Add Services</h1>

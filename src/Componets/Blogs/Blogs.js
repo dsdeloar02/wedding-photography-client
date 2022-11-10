@@ -1,8 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blogs = () => {
     return (
+        
         <div className='container w-5/6 md:w-[750px] mx-auto my-6 h-screen' >
+            <Helmet>
+                <meta charSet='utf-8'/>
+                <title> Photography Blogs</title>
+                <meta name='keyword' content='Wedding Photogray React js'/>                
+            </Helmet>
             <h1 className='text-3xl font-bold text-center my-6' >This is Our Blog Components </h1>
             <div className="collapse my-4">
                 <input type="checkbox" className="peer" /> 

@@ -1,5 +1,6 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext/AuthProvider";
 
@@ -87,6 +88,11 @@ const Login = () => {
 
   return (
     <div className="my-10 ">
+       <Helmet>
+            <meta charSet='utf-8'/>
+            <title>Log In</title>
+            <meta name='keyword' content='Wedding Photogray React js'/>                
+        </Helmet>
       <div className="flex justify-between">
         <div className="mx-auto w-full  max-w-sm shadow-2xl">
           <h1 className="font-bold text-2xl text-center">Log in </h1>

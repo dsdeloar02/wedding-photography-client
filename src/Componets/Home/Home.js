@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useLoaderData } from 'react-router-dom';
 import Banner from '../Banner/Banner';
 import HomeService from '../Service/HomeService';
@@ -8,6 +9,11 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet='utf-8'/>
+                <title>Wedding Photography</title>
+                <meta name='keyword' content='Wedding Photogray React js'/>                
+            </Helmet>
             <Banner></Banner>
             <div>
             <h1 className='py-10 text-center font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600' >My Services</h1>

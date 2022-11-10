@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
@@ -60,6 +61,11 @@ const ServicesDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet='utf-8'/>
+                <title>Service Details</title>
+                <meta name='keyword' content='Wedding Photogray React js'/>                
+            </Helmet>
            <div className="container mx-auto ">
                 <dir className='p-8 rounded-md shadow-md my-10'>
                     <img className='w-full h-[550px] object-cover rounded-md' src={thumbnail} alt="" />

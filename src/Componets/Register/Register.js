@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -80,6 +81,11 @@ const Register = () => {
 
     return (
         <div className="my-6">
+          <Helmet>
+            <meta charSet='utf-8'/>
+            <title>Register</title>
+            <meta name='keyword' content='Wedding Photogray React js'/>                
+        </Helmet>
         <div className="flex justify-between">
           <div className="mx-auto w-full  max-w-sm shadow-xl">
             <h1 className="font-bold text-2xl text-center my-3">Register </h1>

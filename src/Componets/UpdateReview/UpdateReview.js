@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateReview = () => {
@@ -38,6 +39,11 @@ const UpdateReview = () => {
 
     return (
         <div className="w-[60%] mx-auto my-20 p-8 shadow-md rounded-md border">
+          <Helmet>
+            <meta charSet='utf-8'/>
+            <title>Update Review</title>
+            <meta name='keyword' content='Wedding Photogray React js'/>                
+        </Helmet>
               <form onSubmit={handleUpdateReview}>
           <div>
             <h1 className='my-5 text-center font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600' >Update Reviews</h1>
