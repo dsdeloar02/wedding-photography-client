@@ -1,16 +1,16 @@
-
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate, } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext/AuthProvider";
 
 const Login = () => {
-  const [error, setError] = useState('');
-  const { signIn, googleProviderLogin, setLoading, githubProviderLogin } = useContext(AuthContext);
-  
+  const [error, setError] = useState("");
+  const { signIn, googleProviderLogin, setLoading, githubProviderLogin } =
+    useContext(AuthContext);
+
   const navigate = useNavigate();
   let location = useLocation();
-  let from = location.state?.from?.pathname || '/';
+  let from = location.state?.from?.pathname || "/";
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,55 +18,72 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
     signIn(email, password)
-    .then(result => {
-      const user = result.user;
-      console.log(user)
-      form.reset()
-      setError('')
-      if(user.emailVerified){
-        navigate(from, {replace: true});
-      }
-    })
-    .catch(error =>{
-      console.error(error)
-      setError(error.message)
-    })
-    .finally(()=>{
-      setLoading(false)
-    })
+      .then((result) => {
+        const user = result.user;
+        const currentUser = {
+          email: user.email,
+        };
+
+        console.log(currentUser);
+
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // local storage is the easiest but not the best place to store jwt token
+            localStorage.setItem("userprivate-token", data.token);
+            navigate(from, { replace: true });
+            form.reset();
+            setError("");
+          });
+
+        // navigate(from, {replace: true});
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
-   const handleGoogleSignIn = () =>{
+  const handleGoogleSignIn = () => {
     const googleprovider = new GoogleAuthProvider();
     googleProviderLogin(googleprovider)
-    .then(result => {
-      const user = result.user;
-      console.log(user)
-      setError('')
-      navigate(from, {replace: true});
-    })
-    .catch(err => {
-      console.log('error :', error)
-      setError(err.message)
-    })
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        console.log("error :", error);
+        setError(err.message);
+      });
   };
 
-  const handleGithubSignIn = () =>{
+  const handleGithubSignIn = () => {
     const githubprovider = new GithubAuthProvider();
     githubProviderLogin(githubprovider)
-    .then(result => {
-      const user = result.user;
-      // setUser(user)
-      console.log(user)
-      setError('');
-      navigate(from, {replace: true})
-    })
-    .catch(err => {
-      console.log('error :', error)
-      setError(err.message)
-    })
-  }
-
+      .then((result) => {
+        const user = result.user;
+        // setUser(user)
+        console.log(user);
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        console.log("error :", error);
+        setError(err.message);
+      });
+  };
 
   return (
     <div className="my-10 ">
@@ -103,7 +120,9 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <p><small  className="my-2 text-red-600" >{error}</small></p>
+            <p>
+              <small className="my-2 text-red-600">{error}</small>
+            </p>
             <div className="flex justify-between mb-3">
               <label className="label">
                 <Link to="/" className="">
@@ -120,10 +139,16 @@ const Login = () => {
               <small>Or Sign In With</small>
             </p>
             <div className="my-3">
-              <button onClick={handleGoogleSignIn} className="py-2 my-2 w-full bg-orange-400 text-white">
+              <button
+                onClick={handleGoogleSignIn}
+                className="py-2 my-2 w-full bg-orange-400 text-white"
+              >
                 Sign In with Gogle
               </button>
-              <button onClick={handleGithubSignIn} className="py-2 w-full bg-blue-400 text-white">
+              <button
+                onClick={handleGithubSignIn}
+                className="py-2 w-full bg-blue-400 text-white"
+              >
                 Sign In with GitHub
               </button>
             </div>

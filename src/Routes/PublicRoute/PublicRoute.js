@@ -8,6 +8,7 @@ import ServicesDetails from "../../Componets/ServiceDetails/ServicesDetails";
 import UpdateReview from "../../Componets/UpdateReview/UpdateReview";
 import UpdateService from "../../Componets/UpdateService/UpdateService";
 import Main from "../../Layouts/Main";
+import PrivateRoute from "../PrivateRoute.js/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -49,7 +50,7 @@ export const routes = createBrowserRouter([
             {
                 path : '/myreview',
                 loader : () => fetch('http://localhost:5000/myreviews'),
-                element : <MyReview></MyReview>
+                element : <PrivateRoute><MyReview></MyReview></PrivateRoute>
             }
         ]
     }
