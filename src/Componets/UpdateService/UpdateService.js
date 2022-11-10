@@ -9,7 +9,7 @@ const UpdateService = () => {
     const navigate = useNavigate();
     const handleUpdateUser = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:5000/homeservices/${service._id}`, {
+        fetch(`https://wedding-photography-server.vercel.app/homeservices/${service._id}`, {
             method : "PUT",
             headers : {
                 'content-type' : "application/json" 

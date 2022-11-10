@@ -9,7 +9,7 @@ const UpdateReview = () => {
     const navigate = useNavigate();
     const handleUpdateReview = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:5000/reviews/${review._id}`, {
+        fetch(`https://wedding-photography-server.vercel.app/reviews/${review._id}`, {
             method : "PUT",
             headers : {
                 'content-type' : "application/json" 

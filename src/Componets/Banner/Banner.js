@@ -14,11 +14,11 @@ const Banner = () => {
     const [data, setData] = useState([]) ;
 
     useEffect(() => {
-        fetch('http://localhost:5000/banners')
+        fetch('https://wedding-photography-server.vercel.app/banners')
         .then(res => res.json())
         .then(data => setData(data))
     }, [])
-    
+
     return (
         <div className='h-[350px] md:h-[450px] lg:h-[600px] w-full'>
              <Swiper

@@ -19,7 +19,7 @@ export const routes = createBrowserRouter([
         children:[
             {
                 path : '/',
-                loader : () => fetch('http://localhost:5000/homeservices'),
+                loader : () => fetch('https://wedding-photography-server.vercel.app/homeservices'),
                 element : <Home></Home>
             },
             {
@@ -28,12 +28,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path :'/homeservices/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/homeservices/${params.id}`),
+                loader: ({params})=> fetch(`https://wedding-photography-server.vercel.app/homeservices/${params.id}`),
                 element : <ServicesDetails></ServicesDetails>
             },
             {
                 path : 'updateindservice/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/homeservices/${params.id}`),
+                loader: ({params})=> fetch(`https://wedding-photography-server.vercel.app/homeservices/${params.id}`),
                 element : <UpdateService></UpdateService>
             },
             {
@@ -46,17 +46,17 @@ export const routes = createBrowserRouter([
             },
             {
                 path : 'updatereview/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`),
+                loader: ({params})=> fetch(`https://wedding-photography-server.vercel.app/reviews/${params.id}`),
                 element : <UpdateReview></UpdateReview>
             },
             {
                 path : '/myreview',
-                loader : () => fetch('http://localhost:5000/myreviews'),
+                loader : () => fetch('https://wedding-photography-server.vercel.app/myreviews'),
                 element : <PrivateRoute><MyReview></MyReview></PrivateRoute>
             },
             {
                 path : '/allservice',
-                loader: () => fetch('http://localhost:5000/allservice'),
+                loader: () => fetch('https://wedding-photography-server.vercel.app/allservice'),
                 element :<AllServive></AllServive>
             },
             {

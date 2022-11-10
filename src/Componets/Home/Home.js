@@ -11,7 +11,7 @@ const Home = () => {
     const [data, setData] = useState([]) ;
 
     useEffect(() => {
-        fetch('http://localhost:5000/instruments')
+        fetch('https://wedding-photography-server.vercel.app/instruments')
         .then(res => res.json())
         .then(data => setData(data))
     }, [])

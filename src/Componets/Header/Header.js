@@ -46,7 +46,7 @@ const Header = () => {
                     <li className='mx-2 '>
                        {
                         user?.uid? 
-                        <div className='flex relative'>
+                        <div className='flex flex-col md:flex-row relative'>
                             <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
                                 <NavLink to='/myreview' >My Review</NavLink>
                             </li>
@@ -54,7 +54,7 @@ const Header = () => {
                                 <NavLink to='/service/add' >Add Service</NavLink>
                             </li>
 
-                            <button className='px-2 mr-2 mt-2 md:mt-0 bg-black text-white' onClick={handleLogOut} >Log Out </button>
+                            <button className='px-2 py-3 md:py-0 mr-2 mt-2 md:mt-0 bg-black text-white' onClick={handleLogOut} >Log Out </button>
                             <button 
                                 onMouseEnter={() => setIsShown(true)}
                                 onMouseLeave={() => setIsShown(false)}
@@ -73,7 +73,7 @@ const Header = () => {
                         </div>
                         
                         
-                        :  <NavLink to='/login' className='bg-[#6419E6] py-2 px-4 mt-3 md:mt-0' >Log In</NavLink>
+                        :  <NavLink to='/login' className='bg-[#6419E6] py-2 px-4 mt-6 md:mt-0' >Log In</NavLink>
                        }
                     </li>
 

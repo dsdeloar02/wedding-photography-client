@@ -14,7 +14,7 @@ const ServicesDetails = () => {
     // const url = ;
 
     useEffect( () => {
-        fetch(`http://localhost:5000/reviews?service=${_id}`)
+        fetch(`https://wedding-photography-server.vercel.app/reviews?service=${_id}`)
         .then(res => res.json())
         .then(data => setReview(data))
     } ,[_id])
@@ -41,7 +41,7 @@ const ServicesDetails = () => {
             userPhoto : user.photoURL
         }
 
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://wedding-photography-server.vercel.app/reviews", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -63,7 +63,7 @@ const ServicesDetails = () => {
         const agree = window.confirm(`Are you sure you want to delete : ${user.name}`)
         console.log(agree)
         if(agree){
-            fetch(`http://localhost:5000/homeservices/${_id}`, {
+            fetch(`https://wedding-photography-server.vercel.app/homeservices/${_id}`, {
                 method : 'DELETE'
             })
             .then(res => res.json())
