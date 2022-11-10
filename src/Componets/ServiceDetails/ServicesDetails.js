@@ -19,7 +19,7 @@ const ServicesDetails = () => {
 
     const refreshPage = ()=>{
         window.location.reload();
-     }
+    }
 
     const handleSubmit = event => {
         event.preventDefault();

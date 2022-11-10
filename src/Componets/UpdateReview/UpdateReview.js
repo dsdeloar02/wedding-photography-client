@@ -21,7 +21,7 @@ const UpdateReview = () => {
             if(data.modifiedCount > 0 )
             {
                 alert('user updated')
-                navigate(`/homeservices/${review._id}`)
+                // navigate(`/homeservices/${review._id}`)
             }
         })
     }
