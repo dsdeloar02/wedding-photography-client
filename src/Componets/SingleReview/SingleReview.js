@@ -6,7 +6,7 @@ const SingleReview = ({singlereview}) => {
     
 
     return (
-        <div className='w-[30%] p-5 rounded-md shadow-md mt-5'>
+        <div className='w-[100%] md:w-[50%] lg:w-[30%] p-5 rounded-md shadow-md mt-5'>
             <div className='flex align-middle items-center'>
                 <img className='w-[50px] h-[50px] rounded-full' src={singlereview.userPhoto} alt="" />
 

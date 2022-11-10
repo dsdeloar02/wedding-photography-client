@@ -36,7 +36,7 @@ const AddServices = () => {
         console.log(newUsers);
       };
     return (
-        <div className="w-[60%] mx-auto my-20 p-8 shadow-md rounded-md border">
+        <div className="w-[90%] md:w-[60%] mx-auto my-20 p-8 shadow-md rounded-md border">
           <Helmet>
             <meta charSet='utf-8'/>
             <title>Add Service</title>

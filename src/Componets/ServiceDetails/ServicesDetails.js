@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, Navigate, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext/AuthProvider';
 import SingleReview from '../SingleReview/SingleReview';
 
 const ServicesDetails = () => {
     const serviceDetails = useLoaderData();
+    const navigate = useNavigate()
     const {user} = useContext(AuthContext);
     const {_id, package_name, thumbnail, description, price} = serviceDetails;
     const [review, setReview] = useState([])
@@ -58,6 +59,24 @@ const ServicesDetails = () => {
             .catch(er => console.error(er));
     }
 
+    const handleDelteBtn = (user) => {
+        const agree = window.confirm(`Are you sure you want to delete : ${user.name}`)
+        console.log(agree)
+        if(agree){
+            fetch(`http://localhost:5000/homeservices/${_id}`, {
+                method : 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0){
+                    alert('user delete successfullly')
+                    navigate('/allservice')
+                }
+            })
+            console.log(_id)
+        }
+    }
+
 
     return (
         <div>
@@ -68,16 +87,16 @@ const ServicesDetails = () => {
             </Helmet>
            <div className="container mx-auto ">
                 <dir className='p-8 rounded-md shadow-md my-10'>
-                    <img className='w-full h-[550px] object-cover rounded-md' src={thumbnail} alt="" />
+                    <img className='w-full h-[300px] md:h-[550px] object-cover rounded-md' src={thumbnail} alt="" />
                     <div className='flex justify-between my-3'>
                         <p className='text-2xl font-bold text-red-500'>{package_name}</p>
                         <p className='text-2xl font-bold text-red-500'>{price}</p>
                     </div>
                     <p>{description}</p>
 
-                    <div className="flex justify-between py-3">
+                    <div className="flex justify-between py-3 flex-col md:flex-row">
                         <Link to={`/updateindservice/${_id}`} className='py-3 px-12 bg-green-900 text-white'>Update Service</Link>
-                        <Link className='py-3 px-12 bg-green-900 text-white'>Delete Service</Link>
+                        <button onClick={handleDelteBtn} className='py-3 px-12 mt-4 md:mt-0 bg-green-900 text-white'>Delete Service</button>
                     </div>
                 </dir>
 

@@ -24,11 +24,10 @@ const Banner = () => {
             "thumbnail" : "https://i.ytimg.com/vi/EBv48eIcwiQ/maxresdefault.jpg",
             "details" :  'This Gourgious is very interesting Wedding'
         }
-        
     ]
 
     return (
-        <div className='h-[600px] w-full'>
+        <div className='h-[350px] md:h-[450px] lg:h-[600px] w-full'>
              <Swiper
              effect={"fade"}
              autoplay={{
@@ -47,7 +46,7 @@ const Banner = () => {
             className='bg-opacity-20'
             style={{ backgroundImage:`url(${slide.thumbnail})`, backgroundRepeat:'no-repeat', backgroundSize:'Cover', opacity:'0.5' }}
             > 
-            <h1 class=" absolute bottom-12 font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-green-800 to-red-800" >
+            <h1 class=" absolute bottom-12 font-extrabold text-transparent text-xl md:text-3xl lg:text-5xl bg-clip-text bg-gradient-to-r from-emerald-400 to-red-300" >
 
                 {slide.details}
             </h1>
