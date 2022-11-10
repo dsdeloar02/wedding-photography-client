@@ -35,11 +35,12 @@ const AddServices = () => {
         console.log(newUsers);
       };
     return (
-        <div className="formWrapper">
+        <div className="w-[60%] mx-auto my-20 p-8 shadow-md rounded-md border">
               <form onSubmit={handleAddUser}>
-          <div>
-            <h1>Add User</h1>
+          <div className='my-3'>
+            <h1 className='my-5 text-center font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600' >Add Services</h1>
             <input
+            className="input input-bordered input-secondary w-full "
               onBlur={handleInputBlur}
               type="text"
               name="package_name"
@@ -47,8 +48,9 @@ const AddServices = () => {
               required
             />
           </div>
-          <div>
+          <div className='my-3'>
             <input
+            className="input input-bordered input-secondary w-full "
               onBlur={handleInputBlur}
               type="text"
               name="thumbnail"
@@ -56,8 +58,9 @@ const AddServices = () => {
               required
             />
           </div>
-          <div>
+          <div className='my-3'>
             <input
+            className="input input-bordered input-secondary w-full "
               onBlur={handleInputBlur}
               type="text"
               name="price"
@@ -65,9 +68,9 @@ const AddServices = () => {
               required
             />
           </div>
-          <div >
+          <div  className='my-3'>
             <textarea
-              className='w-full p-2'
+            className="w-full p-2 textarea textarea-secondary"
               onBlur={handleInputBlur}
               type="text"
               name="description"
@@ -76,7 +79,7 @@ const AddServices = () => {
             />
           </div>
 
-          <button type="submit">Add User</button>
+          <button  className='bg-purple-600 px-7 py-3 text-white' type="submit">Add User</button>
         </form>
         </div>
     );

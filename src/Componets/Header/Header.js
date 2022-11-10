@@ -42,6 +42,9 @@ const Header = () => {
                         <NavLink to='/' >Home</NavLink>
                     </li>
                     <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
+                        <NavLink to='/myreview' >My Review</NavLink>
+                    </li>
+                    <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>
                         <NavLink to='/service/add' >Add Service</NavLink>
                     </li>
                     <li className='mx-2 py-2 px-2 lg:px-4 hover:bg-orange-400'>

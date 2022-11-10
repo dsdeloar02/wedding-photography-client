@@ -74,8 +74,10 @@ const ServicesDetails = () => {
                         <Link className='py-3 px-12 bg-green-900 text-white'>Delete Service</Link>
                     </div>
                 </dir>
-                
-                <div className='my-6'>
+
+                {
+                    user?.email ? 
+                    <div className='my-6'>
                         {/* The button to open modal */}
                         <div className='w-full flex justify-center'>
                             <label htmlFor="my-modal" className="cursor-pointer py-3 px-8 bg-emerald-600 text-white">Add Review</label>
@@ -103,7 +105,14 @@ const ServicesDetails = () => {
                         </form>
                     </div>
                     </div>
-                </div>
+                    </div>
+                    :
+                    <div className='w-full flex justify-center'>
+                        <Link to='/login' className="cursor-pointer py-3 px-8 bg-emerald-600 text-white">Create Review</Link>
+                     </div> 
+                }
+                
+                
                 <div className='my-6'>
                     <h1 className='text-3xl text-center font-bold my-8' > Review Section</h1>
                     <div className='flex flex-wrap justify-between my-4' >

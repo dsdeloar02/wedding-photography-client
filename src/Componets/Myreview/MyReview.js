@@ -1,0 +1,35 @@
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext/AuthProvider';
+import SingleReview from '../SingleReview/SingleReview';
+
+const MyReview = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const [review, setReview] = useState([]);
+
+    useEffect( () => {
+        fetch(`http://localhost:5000/myreviews?userEmail=${user?.email}`)
+        .then(res => res.json())
+        .then(data => setReview(data))
+    } ,[user?.email, logOut])
+
+    console.log(review)
+
+    return (
+        <div className='w-[80%] mx-auto'>
+            <div className='my-6'>
+                    <h1 className='my-5 text-center font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600'  >My  Review Section</h1>
+                    <div className='flex flex-wrap justify-between my-4' >
+                        {
+                            review.map(singlereview => <SingleReview
+                            key={singlereview._id}
+                            singlereview={singlereview}
+                            ></SingleReview>)
+                        }
+                    </div>
+                </div>
+        </div>
+    );
+}
+
+export default MyReview;
